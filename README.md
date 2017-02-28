@@ -1,8 +1,8 @@
 # dynamic-dns-with-route53
 
-The concept for this script is to use Amazon's Route 53 DNS to update a domain to point to your home's dynamic IP address. This will enable you to access your home network from outside without the use of any additonal software (Which is normaly paid for or limited on free accounts). This is perfect for things such as hosting a website or services from your homelab.
+The concept for this script is to use Amazon's Route 53 DNS to update a domain to point to your home's dynamic IP address. This will enable you to access your home network from outside without the use of any additional software (Which is normally paid for or limited on free accounts). This is perfect for things such as hosting a website or services from your homelab.
 
-Process To Set Up This Script:
+Process To Setup This Script:
 
 ## Step 1 - Setting Up The AMI User:
 
@@ -15,9 +15,9 @@ Name the user and give it Programmatic access
 
 Click on the "Add user to group", once the next screen has loaded click on "Create Policy" this will open a new screen where you can select "Create Your Own Policy"
 
-Enter the following informatin:
+Enter the following information:
 
-Policy Name: Something Unqiue
+Policy Name: Something Unique
 Description: I suggest putting the github URL for the project here incase you need to reference it in the future
 
 ```
@@ -48,7 +48,7 @@ You’ll be given an access and secret key. These are used to authenticate the A
 
 ## Step 2: Set up your Route 53 Subdomain
 
-In Rote 53 I am going to assume that you already have a domain set up previously, the aim of this step is to set up a sub-domain that is going to be altered by the script to point to your home ip what ever it is. For the sake of these instructions I am going to call the sub-domain home.
+In Route 53 I am going to assume that you already have a domain set up previously, the aim of this step is to set up a subdomain that is going to be altered by the script to point to your home ip whatever it is. For the sake of these instructions I am going to call the subdomain home.
 
 To do this navigate from the AWS Management Console to Services – Route 53 – Hosted Zones. Take note of the Hosted Zone ID of this domain then pick the domain you want to use. 
 Click Create Record Set and add the following details:
@@ -68,13 +68,13 @@ pip install requests
 
 If you do not already have pip then follow these instructions to install it and then run the commands above: https://pip.pypa.io/en/stable/installing/
 
-Next you can copy the file 'updater.py' from the main repositry onto your server or computer or you can clone the repository. Once you have the file on the server you want to change the permissions to allow the execution of the file by the user you want to run the script as. See an example of the command you want to run below;
+Next you can copy the file 'updater.py' from the main repository onto your server or computer or you can clone the repository. Once you have the file on the server you want to change the permissions to allow the execution of the file by the user you want to run the script as. See an example of the command you want to run below;
 
 ```
 # Add New User To Run The Script As (Best for security)
 adduser dynamicdns
 
-# Clone the repositoery
+# Clone the repository
 git clone https://github.com/APenketh/dynamic-dns-with-route53.git
 
 # Changing permissions
@@ -88,6 +88,6 @@ crontab -e
 		 */30 * * * * /usr/bin/python /pathtofile/dynamic-dns-with-route53/updater.py
 ```
 
-Once the script is running your IP address will change to your external IP address within the AWS console, you can check this at any time by logging in and checking the sub-domin within route 53.
+Once the script is running your IP address will change to your external IP address within the AWS console, you can check this at any time by logging in and checking the subdomin within route 53.
 
 If you have any issues please feel free to raise an issue here: https://github.com/APenketh/dynamic-dns-with-route53/issues/new
