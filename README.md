@@ -63,9 +63,10 @@ Note: Don’t worry that 127.0.0.1 isn’t your your IP address as the script wi
 
 First you will need to install the boto3 and requests pip modules for python, if you have pip installed already then you can run the following two commands to install these;
 
-pip install boto3
-
-pip install requests
+```
+sudo pip install boto3
+sudo pip install requests
+```
 
 If you do not already have pip then follow these instructions to install it and then run the commands above: https://pip.pypa.io/en/stable/installing/
 
@@ -73,17 +74,17 @@ Next you can copy the file 'updater.py' from the main repository onto your serve
 
 ```
 # Add New User To Run The Script As (Best for security)
-adduser dynamicdns
+sudo adduser dynamicdns
 
 # Clone the repository
-git clone https://github.com/APenketh/dynamic-dns-with-route53.git
+sudo git clone https://github.com/APenketh/dynamic-dns-with-route53.git
 
 # Changing permissions
-chown -R dynamicdns:dynamicdns dynamic-dns-with-route53/
-chmod +x dynamic-dns-with-route53/updater.py
+sudo chown -R dynamicdns:dynamicdns dynamic-dns-with-route53/
+sudo chmod +x dynamic-dns-with-route53/updater.py
 
 # Next you want to edit the crontab for the user you are going to run the script as
-su - dynamicdns
+sudo su - dynamicdns
 crontab -e
      # Add the following line changing the path to your cloned repository (This will run the script every 30 mintuies)
 		 */30 * * * * /usr/bin/python /pathtofile/dynamic-dns-with-route53/updater.py
