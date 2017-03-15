@@ -1,4 +1,4 @@
-# dynamic-dns-with-route53
+# Setting Up Dynamic DNS With Amazon Route 53
 
 The concept for this script is to use Amazon's Route 53 DNS to update a domain to point to your home's dynamic IP address. This will enable you to access your home network from outside without the use of any additional software (Which is normally paid for or limited on free accounts). This is perfect for things such as hosting a website or services from your homelab.
 
@@ -64,6 +64,7 @@ Note: Don’t worry that 127.0.0.1 isn’t your your IP address as the script wi
 First you will need to install the boto3 and requests pip modules for python, if you have pip installed already then you can run the following two commands to install these;
 
 pip install boto3
+
 pip install requests
 
 If you do not already have pip then follow these instructions to install it and then run the commands above: https://pip.pypa.io/en/stable/installing/
