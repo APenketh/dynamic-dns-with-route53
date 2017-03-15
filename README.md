@@ -2,7 +2,7 @@
 
 The concept for this script is to use Amazon's Route 53 DNS to update a domain to point to your home's dynamic IP address. This will enable you to access your home network from outside without the use of any additional software (Which is normally paid for or limited on free accounts). This is perfect for things such as hosting a website or services from your homelab.
 
-Process To Setup This Script:
+Below is the process to set up all of the details you need on Amazon AWS side as well as installing the script on your home server.
 
 ## Step 1 - Setting Up The AMI User:
 
